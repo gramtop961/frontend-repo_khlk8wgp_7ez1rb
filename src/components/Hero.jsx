@@ -5,6 +5,7 @@ import { useRef } from 'react';
 
 export default function Hero() {
   const ref = useRef(null);
+  // Ensure the scroll container has a non-static position (section has "relative")
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y1 = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const y2 = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
@@ -13,8 +14,9 @@ export default function Hero() {
   return (
     <section ref={ref} className="relative h-[90vh] w-full overflow-hidden bg-stone-950 text-stone-100">
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/Vl1M7H9C9pW6sQbL/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-stone-950/60 via-stone-950/40 to-stone-950"></div>
+        {/* Updated to a valid Spline asset */}
+        <Spline scene="https://prod.spline.design/Qe6dlWJktclXcUBS/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-stone-950/60 via-stone-950/40 to-stone-950" />
       </div>
 
       <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6">
